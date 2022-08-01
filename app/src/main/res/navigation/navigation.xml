@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/onBoardingFragment">
+
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.example.navigationassignment.OnBoardingFragment"
+        android:label="fragment_on_boarding"
+        tools:layout="@layout/fragment_on_boarding" >
+        <action
+            android:id="@+id/action_onBoardingFragment_to_introFragment"
+            app:destination="@id/introFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/introFragment"
+        android:name="com.example.navigationassignment.IntroFragment"
+        android:label="fragment_intro"
+        tools:layout="@layout/fragment_intro" >
+        <action
+            android:id="@+id/action_introFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.example.navigationassignment.QuizFragment"
+        android:label="fragment_quiz"
+        tools:layout="@layout/fragment_quiz" >
+        <action
+            android:id="@+id/action_quizFragment_to_congratFragment"
+            app:destination="@id/congratFragment">
+            <argument
+                android:name="arg"
+                app:argType="integer"
+                android:defaultValue="0"/>
+        </action>
+        <action
+            android:id="@+id/action_quizFragment_to_failFragment"
+            app:destination="@id/failFragment" />
+        <action
+            android:id="@+id/action_quizFragment_to_onBoardingFragment"
+            app:destination="@id/onBoardingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/congratFragment"
+        android:name="com.example.navigationassignment.CongratFragment"
+        android:label="fragment_congrat"
+        tools:layout="@layout/fragment_congrat">
+        <argument
+            android:name="arg"
+            app:argType="integer"
+            android:defaultValue="0"/>
+    </fragment>
+    <fragment
+        android:id="@+id/failFragment"
+        android:name="com.example.navigationassignment.FailFragment"
+        android:label="fragment_fail"
+        tools:layout="@layout/fragment_fail" />
+</navigation>
